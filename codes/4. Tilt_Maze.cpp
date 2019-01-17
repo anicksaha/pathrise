@@ -12,13 +12,12 @@ int canReach(pair<int,int> source, pair<int,int> destination, vector<vector<int>
     int N = grid.size();
     int M = grid[0].size();
     
-    cout<<N<<" "<<M<<endl;
-    bool visited[N][M];
-    memset(visited,false,sizeof(visited));
+    //cout<<N<<" "<<M<<endl;
+    //bool visited[N][M];
+    //memset(visited,false,sizeof(visited));
     
-    //vector<vector<bool>> visited2(N,vector<bool>(M,false));
-    //cout<<visited2.size()<<" "<<visited2[0].size();
-    
+    vector<vector<bool>> visited(N,vector<bool>(M,false));
+
     queue<Node> Q;
     
     Q.push({source.first,source.second,0});
@@ -42,7 +41,7 @@ int canReach(pair<int,int> source, pair<int,int> destination, vector<vector<int>
             
             if(!visited[nx-dx[i]][ny-dy[i]]) {
                 Q.push({nx-dx[i], ny-dy[i],front.moves+1});
-                visited[nx-dx[0]][ny-dy[i]] = 1;
+                visited[nx-dx[i]][ny-dy[i]] = 1;
             }
         }   
     }
